@@ -1,6 +1,7 @@
 import React from "react";
 
-import { withRouter, useLocation } from "react-router";
+import { withRouter, useLocation, useHistory } from "react-router";
+import { Button } from "react-bootstrap";
 
 import Residents from "./Residents";
 
@@ -8,9 +9,16 @@ function PlanetPage() {
   const {
     state: { planet },
   } = useLocation();
-  console.log(planet);
+
+  const history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
+
   return (
     <div>
+      <Button onClick={goBack}>Go back</Button>
       <div>name {planet.name}</div>
       <div>rotation_period {planet.rotation_period}</div>
       <div>diameter {planet.diameter}</div>

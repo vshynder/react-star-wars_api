@@ -6,7 +6,7 @@ import { withRouter, useHistory } from "react-router";
 function PlanetCard({ planet }) {
   const history = useHistory();
   const onCardClick = (planet) => {
-    history.push(`/${planet.name}`, {
+    history.push(`/${planet.name.toLowerCase()}`, {
       planet: planet,
     });
   };

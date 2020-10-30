@@ -33,8 +33,6 @@ function HomePage({ getPlanets, planets }) {
 
 const mapStateToProps = (state) => ({
   planets: state.planets.data,
-  nextPage: state.planets.next,
-  prevPage: state.planets.prev,
 });
 
 const mapDispatchToProps = (dispatch) => ({
