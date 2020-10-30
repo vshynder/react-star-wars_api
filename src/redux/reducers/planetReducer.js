@@ -1,10 +1,10 @@
-import actions from "./planetActions";
+import { planetActions } from "../actions";
 import { createReducer } from "@reduxjs/toolkit";
 
 export const planetReducer = createReducer([], {
-  [actions.getPlanetsSuccess]: (state, action) => ({
+  [planetActions.getPlanetsSuccess]: (state, action) => ({
     next: action.payload.next,
     prev: action.payload.previous,
-    planets: action.payload.results,
+    data: action.payload.results,
   }),
 });

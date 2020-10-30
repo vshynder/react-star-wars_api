@@ -8,9 +8,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import { planetReducer } from "./redux";
+import { residentReducer } from "./redux";
 
 const store = configureStore({
-  reducer: planetReducer,
+  reducer: {
+    planets: planetReducer,
+    residents: residentReducer,
+  },
 });
 
 ReactDOM.render(

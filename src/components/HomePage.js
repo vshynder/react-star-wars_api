@@ -10,7 +10,7 @@ import { planetOperations } from "../redux";
 
 function HomePage({ getPlanets, planets }) {
   useEffect(() => {
-    getPlanets();
+    if (!planets) getPlanets();
   }, []);
 
   return (
@@ -26,7 +26,7 @@ function HomePage({ getPlanets, planets }) {
 }
 
 const mapStateToProps = (state) => ({
-  planets: state.planets,
+  planets: state.planets.data,
 });
 
 const mapDispatchToProps = (dispatch) => ({
