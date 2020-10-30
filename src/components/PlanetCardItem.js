@@ -3,7 +3,7 @@ import React from "react";
 import { Col, Card } from "react-bootstrap";
 import { withRouter, useHistory } from "react-router";
 
-function PlanetCard({ planet }) {
+function PlanetCardItem({ planet }) {
   const history = useHistory();
   const onCardClick = (planet) => {
     history.push(`/${planet.name.toLowerCase()}`, {
@@ -24,4 +24,4 @@ function PlanetCard({ planet }) {
   );
 }
 
-export default withRouter(PlanetCard);
+export default withRouter(PlanetCardItem);

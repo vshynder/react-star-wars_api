@@ -2,8 +2,8 @@ import React from "react";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
-import HomePage from "./components/HomePage";
-import PlanetPage from "./components/PlanetPage";
+import HomePage from "./pages/HomePage";
+import PlanetPage from "./pages/PlanetPage";
 
 import "./app.scss";
 

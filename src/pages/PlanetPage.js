@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { withRouter, useLocation, useHistory } from "react-router";
 import { Button } from "react-bootstrap";
 
-import Residents from "./Residents";
-import LoadSpinner from "./LoadSpinner";
+import Residents from "../components/Residents";
+import LoadSpinner from "../components/LoadSpinner";
 
 import { Container } from "react-bootstrap";
 

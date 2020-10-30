@@ -2,7 +2,7 @@ import { planetActions, residentActions } from "./actions";
 import { planetOperations, residentOperations } from "./operations";
 import { planetReducer } from "./reducers/planetReducer";
 import { residentReducer } from "./reducers/residentReducer";
-import planetSelectors from "./planetSelectors";
+import { loaderReducer } from "./reducers/loaderReducer";
 
 export {
   planetActions,
@@ -11,5 +11,5 @@ export {
   residentOperations,
   planetReducer,
   residentReducer,
-  planetSelectors,
+  loaderReducer,
 };

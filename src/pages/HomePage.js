@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 
-import shortid from "shortid";
-
-import { Container, Row, Col } from "react-bootstrap";
-import PlanetCard from "./PlanetCard";
-import PagesButtons from "./PagesButtons";
-import LoadSpinner from "./LoadSpinner";
+import { Container } from "react-bootstrap";
+import PagesButtons from "../components/PagesButtons";
+import LoadSpinner from "../components/LoadSpinner";
+import PlanetsCards from "../components/PlanetsCards";
 
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
@@ -27,18 +25,8 @@ function HomePage({ getPlanets, planets }) {
     <div className="planet">
       {planets ? (
         <Container className="py-3">
-          <Row>
-            {planets &&
-              planets.map((planet) => (
-                <PlanetCard planet={planet} key={shortid.generate()} />
-              ))}
-          </Row>
-
-          <Row>
-            <Col>
-              <PagesButtons />
-            </Col>
-          </Row>
+          <PlanetsCards planets={planets} />
+          <PagesButtons />
         </Container>
       ) : (
         <LoadSpinner visible={planets} />

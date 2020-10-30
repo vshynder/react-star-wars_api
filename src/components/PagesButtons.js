@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Button, ButtonGroup } from "react-bootstrap";
+import { Button, ButtonGroup, Row, Col } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
 
 import { LS_KEY } from "../constants";
 
-function PagesButtons({ getPlanets, prevPage, nextPage }) {
+function PagesButtons({ getPlanets, prevPage, nextPage, isLoading }) {
   const handlePageChange = (page) => {
     let url;
     if (page === "prev") {
@@ -20,28 +20,35 @@ function PagesButtons({ getPlanets, prevPage, nextPage }) {
   };
 
   return (
-    <ButtonGroup>
-      <Button
-        onClick={() => handlePageChange("prev")}
-        disabled={!prevPage}
-        variant="dark"
-      >
-        Previous page
-      </Button>
-      <Button
-        onClick={() => handlePageChange("next")}
-        disabled={!nextPage}
-        variant="dark"
-      >
-        Next page
-      </Button>
-    </ButtonGroup>
+    <Row>
+      <Col>
+        <Button
+          className="page__button"
+          onClick={() => handlePageChange("prev")}
+          disabled={!prevPage || isLoading}
+          variant="dark"
+        >
+          {isLoading ? "Loading..." : "Previous page"}
+        </Button>
+      </Col>
+      <Col>
+        <Button
+          className="page__button"
+          onClick={() => handlePageChange("next")}
+          disabled={!nextPage || isLoading}
+          variant="dark"
+        >
+          {isLoading ? "Loading..." : "Next page"}
+        </Button>
+      </Col>
+    </Row>
   );
 }
 
 const mapStateToProps = (state) => ({
   nextPage: state.planets.next,
   prevPage: state.planets.prev,
+  isLoading: state.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
