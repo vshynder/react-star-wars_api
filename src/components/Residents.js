@@ -9,11 +9,12 @@ function Residents({ residentsUrl, getResident, clearResidents, residents }) {
   useEffect(() => {
     clearResidents();
     residentsUrl.length && residentsUrl.forEach((url) => getResident(url));
+    // eslint-disable-next-line
   }, []);
 
   return (
     <div>
-      {residents ? (
+      {residents.length ? (
         <div>
           residents:
           {residents.map((resident) => (

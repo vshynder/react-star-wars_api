@@ -24,14 +24,14 @@ function PagesButtons({ getPlanets, prevPage, nextPage }) {
       <Button
         onClick={() => handlePageChange("prev")}
         disabled={!prevPage}
-        variant="outline-dark"
+        variant="dark"
       >
         Previous page
       </Button>
       <Button
         onClick={() => handlePageChange("next")}
         disabled={!nextPage}
-        variant="outline-dark"
+        variant="dark"
       >
         Next page
       </Button>

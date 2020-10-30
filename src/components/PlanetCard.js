@@ -12,12 +12,12 @@ function PlanetCard({ planet }) {
   };
 
   return (
-    <Col sm={6} lg={4}>
-      <Card onClick={() => onCardClick(planet)}>
-        <Card.Header>{planet.name}</Card.Header>
+    <Col sm={6} lg={4} className="mb-2">
+      <Card bg="dark" text="white" onClick={() => onCardClick(planet)}>
+        <Card.Header as="h4">{planet.name}</Card.Header>
         <Card.Body>
-          <Card.Title>{planet.climate}</Card.Title>
-          <Card.Text>{planet.population}</Card.Text>
+          <Card.Title as="p">climate - {planet.climate}</Card.Title>
+          <Card.Text as="p">population: {planet.population}</Card.Text>
         </Card.Body>
       </Card>
     </Col>

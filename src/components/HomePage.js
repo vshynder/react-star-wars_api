@@ -2,11 +2,10 @@ import React, { useEffect } from "react";
 
 import shortid from "shortid";
 
-import Loader from "react-loader-spinner";
-
 import { Container, Row, Col } from "react-bootstrap";
 import PlanetCard from "./PlanetCard";
 import PagesButtons from "./PagesButtons";
+import LoadSpinner from "./LoadSpinner";
 
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
@@ -21,31 +20,30 @@ function HomePage({ getPlanets, planets }) {
       if (saved_url) url = saved_url;
       getPlanets(url);
     }
+    // eslint-disable-next-line
   }, []);
 
-  return planets ? (
-    <Container>
-      <Row>
-        {planets &&
-          planets.map((planet) => (
-            <PlanetCard planet={planet} key={shortid.generate()} />
-          ))}
-      </Row>
-      <Row>
-        <Col>
-          <PagesButtons />
-        </Col>
-      </Row>
-    </Container>
-  ) : (
-    <Loader
-      className="loader"
-      type="Circles"
-      color="#00BFFF"
-      height={100}
-      width={100}
-      visible={planets}
-    />
+  return (
+    <div className="planet">
+      {planets ? (
+        <Container className="py-3">
+          <Row>
+            {planets &&
+              planets.map((planet) => (
+                <PlanetCard planet={planet} key={shortid.generate()} />
+              ))}
+          </Row>
+
+          <Row>
+            <Col>
+              <PagesButtons />
+            </Col>
+          </Row>
+        </Container>
+      ) : (
+        <LoadSpinner visible={planets} />
+      )}
+    </div>
   );
 }
 
