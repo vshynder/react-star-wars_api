@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import shortid from "shortid";
 
+import Loader from "react-loader-spinner";
+
 import { Container, Row, Col } from "react-bootstrap";
 import PlanetCard from "./PlanetCard";
 import PagesButtons from "./PagesButtons";
@@ -9,12 +11,19 @@ import PagesButtons from "./PagesButtons";
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
 
+import { LS_KEY } from "../constants";
+
 function HomePage({ getPlanets, planets }) {
   useEffect(() => {
-    if (!planets) getPlanets("https://swapi.dev/api/planets/");
+    if (!planets) {
+      let url = "https://swapi.dev/api/planets/";
+      const saved_url = localStorage.getItem(LS_KEY);
+      if (saved_url) url = saved_url;
+      getPlanets(url);
+    }
   }, []);
 
-  return (
+  return planets ? (
     <Container>
       <Row>
         {planets &&
@@ -28,6 +37,15 @@ function HomePage({ getPlanets, planets }) {
         </Col>
       </Row>
     </Container>
+  ) : (
+    <Loader
+      className="loader"
+      type="Circles"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      visible={planets}
+    />
   );
 }
 

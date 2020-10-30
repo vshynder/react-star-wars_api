@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 
 import Residents from "./Residents";
 
+import { Container } from "react-bootstrap";
+
 function PlanetPage() {
   const {
     state: { planet },
@@ -17,7 +19,7 @@ function PlanetPage() {
   };
 
   return (
-    <div>
+    <Container>
       <Button onClick={goBack}>Go back</Button>
       <div>name {planet.name}</div>
       <div>rotation_period {planet.rotation_period}</div>
@@ -27,7 +29,7 @@ function PlanetPage() {
       <div>terrain {planet.terrain}</div>
       <div>population {planet.population}</div>
       <Residents residentsUrl={planet.residents} />
-    </div>
+    </Container>
   );
 }
 

@@ -5,6 +5,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import PlanetPage from "./components/PlanetPage";
 
+import "./app.scss";
+
 function App() {
   return (
     <BrowserRouter>

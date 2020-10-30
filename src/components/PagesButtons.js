@@ -5,13 +5,18 @@ import { Button, ButtonGroup } from "react-bootstrap";
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
 
+import { LS_KEY } from "../constants";
+
 function PagesButtons({ getPlanets, prevPage, nextPage }) {
   const handlePageChange = (page) => {
+    let url;
     if (page === "prev") {
-      getPlanets(prevPage);
+      url = prevPage;
     } else {
-      getPlanets(nextPage);
+      url = nextPage;
     }
+    localStorage.setItem(LS_KEY, url);
+    getPlanets(url);
   };
 
   return (
