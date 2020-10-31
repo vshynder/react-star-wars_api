@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, ButtonGroup, Row, Col } from "react-bootstrap";
+import { Button, ButtonGroup, Row, Col, Spinner } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
@@ -28,7 +28,20 @@ function PagesButtons({ getPlanets, prevPage, nextPage, isLoading }) {
           disabled={!prevPage || isLoading}
           variant="dark"
         >
-          {isLoading ? "Loading..." : "Previous page"}
+          {isLoading ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              <span className="ml-2">Loading...</span>{" "}
+            </>
+          ) : (
+            "Previous page"
+          )}
         </Button>
       </Col>
       <Col>
@@ -38,7 +51,20 @@ function PagesButtons({ getPlanets, prevPage, nextPage, isLoading }) {
           disabled={!nextPage || isLoading}
           variant="dark"
         >
-          {isLoading ? "Loading..." : "Next page"}
+          {isLoading ? (
+            <>
+              <Spinner
+                as="span"
+                animation="border"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              <span className="ml-2">Loading...</span>{" "}
+            </>
+          ) : (
+            "Next page"
+          )}
         </Button>
       </Col>
     </Row>
