@@ -6,9 +6,15 @@ import Residents from "./Residents";
 export default function PlanetPageInfo({ planet, goBack }) {
   return (
     <>
-      <Card className="planet__text-card m-auto" bg="dark">
+      <Card
+        style={{ minWidth: "60%" }}
+        className="planet__text-card m-auto"
+        bg="dark"
+      >
         <Card.Header>
-          <Button onClick={goBack}>Go back</Button>
+          <Button variant="secondary" onClick={goBack}>
+            Go back
+          </Button>
         </Card.Header>
         <Card.Body>
           <Card.Title>Planet name: {planet.name}</Card.Title>

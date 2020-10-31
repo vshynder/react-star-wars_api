@@ -17,9 +17,11 @@ function Residents({ residentsUrl, getResident, clearResidents, residents }) {
       {residents.length ? (
         <div>
           residents:
-          {residents.map((resident) => (
-            <span key={shortid.generate()}>{resident} </span>
-          ))}
+          <ul className="planet__text-card--residents">
+            {residents.map((resident) => (
+              <li key={shortid.generate()}>{resident} </li>
+            ))}
+          </ul>
         </div>
       ) : (
         <div>no residents</div>
