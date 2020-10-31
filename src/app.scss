@@ -17,6 +17,10 @@
   min-width: 100vw;
   min-height: 100vh;
 
+  &__cards {
+    cursor: pointer;
+  }
+
   &__outer {
     min-width: 100vw;
     min-height: 100vh;
@@ -41,7 +45,6 @@
     &-card {
       max-width: 80%;
       overflow-y: scroll;
-      cursor: pointer;
 
       &--residents {
         display: block;
