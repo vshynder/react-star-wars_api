@@ -41,6 +41,7 @@
     &-card {
       max-width: 80%;
       overflow-y: scroll;
+      cursor: pointer;
 
       &--residents {
         display: block;
