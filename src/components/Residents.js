@@ -13,7 +13,7 @@ function Residents({ residentsUrl, getResident, clearResidents, residents }) {
   }, []);
 
   return (
-    <div>
+    <>
       {residents.length ? (
         <div>
           residents:
@@ -24,7 +24,7 @@ function Residents({ residentsUrl, getResident, clearResidents, residents }) {
       ) : (
         <div>no residents</div>
       )}
-    </div>
+    </>
   );
 }
 

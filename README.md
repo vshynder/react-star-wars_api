@@ -6,6 +6,6 @@ TODO:
 
 - style everything:
   - [x] style homepage;
-  - [] style planet page;
+  - [x] style planet page;
 - [x] add error handlers;
 - [x] add loaders;

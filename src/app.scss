@@ -34,5 +34,10 @@
 
   &__text {
     color: white;
+    min-height: 100vh;
+
+    &-card {
+      max-width: 80%;
+    }
   }
 }
