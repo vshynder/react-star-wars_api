@@ -6,11 +6,11 @@ import LoadSpinner from "../components/LoadSpinner";
 import ErrorHandler from "../components/Error";
 import PlanetPageInfo from "../components/PlanetPageInfo";
 
-import { Container, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 import { BG_IMAGES } from "../constants";
 
-function PlanetPage() {
+function PlanetPage({ residentsLoaded }) {
   const history = useHistory();
   const location = useLocation();
   let planet;
@@ -25,6 +25,7 @@ function PlanetPage() {
   };
 
   const [isLoaded, setIsLoaded] = useState(false);
+  console.log(residentsLoaded);
 
   return planet ? (
     <div className="planet__outer">
@@ -34,10 +35,14 @@ function PlanetPage() {
         className="planet__background"
         alt="space images"
         src={BG_IMAGES[Math.floor(Math.random() * BG_IMAGES.length)]}
-        style={{ visibility: isLoaded ? "visible" : "hidden" }}
+        style={{
+          visibility: isLoaded ? "visible" : "hidden",
+        }}
       />
       <Row
-        style={{ visibility: isLoaded ? "visible" : "hidden" }}
+        style={{
+          visibility: isLoaded ? "visible" : "hidden",
+        }}
         className="planet__text"
       >
         <PlanetPageInfo goBack={goBack} planet={planet} />

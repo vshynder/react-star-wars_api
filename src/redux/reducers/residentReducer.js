@@ -1,9 +1,19 @@
 import { residentActions } from "../actions";
 import { createReducer } from "@reduxjs/toolkit";
 
-export const residentReducer = createReducer([], {
-  [residentActions.getResidentSuccess]: (state, action) => {
-    return [...state, action.payload.name];
-  },
-  [residentActions.clearResidents]: (state, action) => [],
+const initState = { names: [], isLoaded: false };
+
+export const residentReducer = createReducer(initState, {
+  [residentActions.getResidentRequest]: (state, action) => ({
+    names: [],
+    isLoaded: false,
+  }),
+  [residentActions.getResidentSuccess]: (state, action) => ({
+    names: [...state.names, action.payload.name],
+    isLoaded: true,
+  }),
+  [residentActions.clearResidents]: (state, action) => ({
+    names: [],
+    isLoaded: true,
+  }),
 });

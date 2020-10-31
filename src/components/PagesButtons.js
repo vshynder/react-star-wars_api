@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, ButtonGroup, Row, Col, Spinner } from "react-bootstrap";
+import { Button, Row, Col, Spinner } from "react-bootstrap";
 
 import { connect } from "react-redux";
 import { planetOperations } from "../redux";
