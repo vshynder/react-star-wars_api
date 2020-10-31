@@ -7,13 +7,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
-import { planetReducer, residentReducer, loaderReducer } from "./redux";
+import {
+  planetReducer,
+  residentReducer,
+  loaderReducer,
+  errorReducer,
+} from "./redux";
 
 const store = configureStore({
   reducer: {
     planets: planetReducer,
     residents: residentReducer,
     isLoading: loaderReducer,
+    isError: errorReducer,
   },
 });
 

@@ -7,7 +7,7 @@ const getResident = (url) => (dispatch) => {
   axios
     .get(url)
     .then(({ data }) => dispatch(residentActions.getResidentSuccess(data)))
-    .catch((error) => dispatch(residentActions.getResidentError(error)));
+    .catch((error) => dispatch(residentActions.getResidentError("error")));
 };
 
 const operations = { getResident };

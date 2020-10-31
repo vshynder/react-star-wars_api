@@ -5,17 +5,21 @@ import { Button } from "react-bootstrap";
 
 import Residents from "../components/Residents";
 import LoadSpinner from "../components/LoadSpinner";
+import ErrorHandler from "../components/Error";
 
 import { Container } from "react-bootstrap";
 
 import { BG_IMAGES } from "../constants";
 
 function PlanetPage() {
-  const {
-    state: { planet },
-  } = useLocation();
-
   const history = useHistory();
+  const location = useLocation();
+  let planet;
+  if (location.state) {
+    planet = location.state.planet;
+  } else {
+    history.push("/");
+  }
 
   const goBack = () => {
     history.goBack();
@@ -23,7 +27,7 @@ function PlanetPage() {
 
   const [isLoaded, setIsLoaded] = useState(false);
 
-  return (
+  return planet ? (
     <div className="planet__outer">
       {!isLoaded && <LoadSpinner visible={!isLoaded} />}
       <img
@@ -48,6 +52,8 @@ function PlanetPage() {
         <Residents residentsUrl={planet.residents} />
       </Container>
     </div>
+  ) : (
+    <ErrorHandler />
   );
 }
 
